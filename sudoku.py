@@ -43,6 +43,9 @@ def solve(puzzle):
                     puzzle[row][column] = 0
                 #no valid values for this space
                 return False
+    #if we get here there were no empty spaces
+    #this shouldn't happen, but I should treat it as if the puzzle is solved and return True
+    return True
 
 #returns range function of other cells in the same house as provided cell's row or column
 def house_neighbors(address):
