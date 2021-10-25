@@ -1,13 +1,4 @@
-#to solve:
-#iterate through the puzzle looking for an empty space
-    #iterate through possible values for the space
-        #if value is not in current row
-        #current column
-        #current house
-            #insert the value into the puzzle
-            #if puzzle is full or recursive solve call returns true return true
-            #else set space back to empty and return false
-        #else try next value
+import random
 
 def check_complete(puzzle):
     for row in range(9):
@@ -19,11 +10,15 @@ def check_complete(puzzle):
     return True
 
 def solve(puzzle):
+
     #look for empty space
     for row in range(9):
         for column in range(9):
             if puzzle[row][column] == 0:
-                for value in range(1,10):
+                #introduce randomness
+                values = [x for x in range(1,10)]
+                random.shuffle(values)
+                for value in values:
                     #check the row
                     row_failed = False
                     if value in puzzle[row]:
